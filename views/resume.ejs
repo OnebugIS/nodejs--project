@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<!-- 此时登录页面 从register.ejs复制过来  改完后要记得在appjs处注册 -->
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
+    <script type="text/javascript" src="/bootstrap/js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+  </head>
+  <body>
+    <%- include("./header.ejs",{title:"个人信息",isShow:false})%><!-- //做的公用头 引用的公用头 错点：不要忘记加逗号ejs",{-   isShow:false这个注册页面要不要显示-->
+
+  </body>
+</html>

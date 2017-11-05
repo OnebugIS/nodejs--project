@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+
+
+    <script type="text/javascript" src="/javascripts/xheditor/jquery/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/javascripts/xheditor/xheditor-1.2.2.min.js"></script>
+    <script type="text/javascript" src="/javascripts/xheditor/xheditor_lang/zh-cn.js"></script>
+
+
+    <link rel='stylesheet' href='/bootstrap/css/bootstrap.css' />
+     <script type="text/javascript" src="/bootstrap/js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+
+  </head>
+  <body>
+    
+  		<%- include("./header.ejs",{title:"详情页面",isShow:false})%>
+
+  		<div class="container">
+         <h2>标题</h2>
+  			 <div class="panel-default">
+
+           <div class="panel-heading">
+             <h3 class="panel-title"><%= info.title%></h3>
+           </div>
+  
+
+           <h3>摘要</h3>
+           <div class="panel-heading">
+
+             <h3 class="panel-title"><%= info.abstract%></h3>
+           </div>
+
+
+
+           <h3>内容</h3>
+           <div class="panel-body">
+             <div class="form-group">
+               <textarea class="form-control xheditor" rows="6" name="content" ><%= info.content%></textarea>
+             </div>
+
+
+             <img src="<%= info.pathname%>"/>
+           </div>
+         </div>
+
+  		</div>
+  </body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
+    <script type="text/javascript" src="/bootstrap/js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+    <style type="text/css">
+    html,
+    body {
+        height: 100%;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    section {
+        flex: 1;
+        margin: 20px 0;
+        display: flex;
+        justify-content: space-between;
+        margin-top: -10px;
+    }
+
+    section aside {
+        width: 200px;
+        border: 1px solid #000;
+    }
+
+    section div {
+        flex: 1;
+        border: 1px solid #000;
+        margin: 0 20px;
+    }
+
+    section article {
+        width: 200px;
+        border: 1px solid #000;
+    }
+
+    footer {
+        background: #333;
+        height: 100px;
+    }
+
+    #one {
+        margin-bottom: 8px;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 以headername变量名 体现name cook值 -->
+    <%- include("./header.ejs",{title:"后台管理系统",isShow:true,headername:name})%>
+        <section>
+
+            <aside>
+                <button class="btn btn-block" id="one" type="submit" onclick="window.open('http://localhost:3000/resume')">个人信息</button>
+                <button class="btn btn-block" id="one" type="submit" onclick="window.open('http://localhost:3000/list')">已发表文章</button>
+                <button class="btn btn-block" id="one" type="submit" onclick="window.open('#')">数据统计</button>
+                <button class="btn btn-block" id="one" type="submit" onclick="window.open('#')">联系客服</button>
+                <button class="btn btn-block" id="one" type="submit" onclick="window.open('#')">关于我们</button>
+            </aside>
+
+            <div>
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>标题</th>
+                            <th>摘要</th>
+                            <th>基本操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- /循环创建内容 -->
+                        <%for(var i=0;i<list.length;i++){%>
+                            <tr>
+                                <td>
+                                    <a href="/detail?id=<%= list[i]._id%>">
+                                        <%= list[i].title%>
+                                    </a>
+                                </td>
+                                <!-- 通过标题找到内容进行修改 -->
+                                <td>
+                                    <%= list[i].abstract%>
+                                </td>
+                                <td>
+                                    <a href="/article/fixed?id=<%= list[i]._id%>" class="btn btn-default" role="button">修改</a>
+                                    <a href="/article/delete?id=<%= list[i]._id%>" class="btn btn-danger" role="button">删除</a>
+                                </td>
+                            </tr>
+                            <%}%>
+                    </tbody>
+                </table>
+            </div>
+
+            <article>
+               <!--  <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>查看评论</th>
+                            <th>查看弹幕</th> -->
+                            <!-- <th>基本操作</th> -->
+                        <!-- </tr>
+                    </thead> -->
+            </article>
+           </section>
+
+        <footer></footer>
+</body>
+
+</html>
